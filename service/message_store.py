@@ -10,7 +10,7 @@ class MessageStore:
     def set(self, key, value):
         if len(self.table) >= self.max_size:
             self._delete_oldest()
-        self.table.insert({'key': key, 'value': value, 'timestamp': time.time()})
+        self.table.update({'key': key, 'value': value, 'timestamp': time.time()})
 
     def get_from_key(self, key):
         query = Query()
